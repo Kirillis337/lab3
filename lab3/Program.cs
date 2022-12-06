@@ -4,13 +4,16 @@ namespace lab3
 {
     class Program: overloading
     {
-        static void Main(string[] args)
+        static void Main()
         {
+
             byte task;
+            string newname;
 
             Console.Write("Введите номер задания(1-5): ");
             while (!byte.TryParse(Console.ReadLine(), out task))
-                Console.Write("Введите корректную x координату центра: ");
+                Console.Write("Введите номер задания(1-5): ");
+            Console.WriteLine("------------------------------------------------");
             switch (task)
             {
                 case 1:
@@ -33,9 +36,24 @@ namespace lab3
                     break;
                 case 4:
                     Cat cat = new Cat("Барсик");
-                    cat.GetChild();
+                    cat.info();
+                    cat.Voice();
+                    Console.Write("Введите имя котенка:");
+                    newname = Console.ReadLine();
+                    Cat minicat = cat.GetChild(newname);
+                    Console.WriteLine($"Родился {minicat.name}");
+                    minicat.info();
+                    minicat.Voice();
+
                     Dog dog = new Dog("Бобик");
-                    dog.GetChild();
+                    dog.info();
+                    dog.Voice();
+                    Console.Write("Введите имя собачки:");
+                    newname = Console.ReadLine();
+                    Dog minidog = dog.GetChild(newname);
+                    Console.WriteLine($"Родился {minidog.name}");
+                    minidog.info();
+                    minidog.Voice();
                     break;
                 case 5:                    
                     Print(5);
@@ -51,7 +69,8 @@ namespace lab3
 
                     break;
             }
-
+            Console.WriteLine("------------------------------------------------");
+            Main();
         }
         public static void GetanimalType(Object x)
         {

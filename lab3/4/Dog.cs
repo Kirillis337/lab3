@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    class Dog : Cat
+    class Dog : Pet
     {
         public Dog(string name):base (name)
         {
             this.name = name;
         }
-        public new void GetChild()
+        public override void Voice()
         {
-            Console.WriteLine($"{name}: Произошло порождение собакена(Hotdog)");
+            Console.WriteLine("гав");
+        }
+
+        public override dynamic GetChild(string x)
+        {
+            return new Dog(x); 
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    class Mammals
+    abstract class Mammals
     {
         protected string name;
 

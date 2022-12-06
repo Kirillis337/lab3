@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace lab3
 {
-    class Cat
+    class Cat : Pet
     {
-        protected string name;
-        public Cat(string name)
+        public Cat(string name) : base(name)
         {
             this.name = name;
         }
-        public void GetChild()
+        public override void Voice()
         {
-            Console.WriteLine($"{name}: Произошло порождение кота(микрокiт)");
+            Console.WriteLine("мяу");
+        }
+        public override dynamic GetChild(string x)
+        {
+            return new Cat(x); 
         }
     }
 }
